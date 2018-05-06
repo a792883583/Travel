@@ -5,7 +5,7 @@
 			v-for="item of letters"
 			:key="item"
 			:ref="item"
-			@touchstart="handleTouchStact"
+			@touchstart.prevent="handleTouchStact"
 			@touchmove="handleTouchMove"
 			@touchend="handeTouchEnd"
 			@click="handleletterclick"
@@ -57,7 +57,6 @@
 						const index=Math.floor((touchY-this.startY)/20)
 						if(index>=0&&index<this.letters.length){
 							this.$emit('change',this.letters[index])
-							console.log(this.letters[index])
 						}
 					},16)
 				}
